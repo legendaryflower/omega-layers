@@ -96,7 +96,7 @@ Vue.component("prestige-layer", {
 <button v-if="nextLayer && (layer.canGenerateNextLayer() || nextLayer.timesReset > 0)" :disabled="!layer.canPrestige()" class="prestige" @click="layer.prestige()">
     <span v-if="layer.isNonVolatile()">+{{formatNumber(layer.getPrestigeAmountPerSecond(), 2, 2)}} <resource-name :layerid="nextLayer.layer"></resource-name>/s</span>
     <span v-else>
-        <span v-if="layer.canPrestige()">Prestige to go <resource-name :layerid="nextLayer.layer"></resource-name><br/>Get +{{formatNumber(layer.getPrestigeAmount(), 2, 0)}} <resource-name :layerid="nextLayer.layer"></resource-name></span>
+        <span v-if="layer.canPrestige()">Reset for <resource-name :layerid="nextLayer.layer"></resource-name><br/>Get +{{formatNumber(layer.getPrestigeAmount(), 2, 0)}} <resource-name :layerid="nextLayer.layer"></resource-name></span>
         <span v-else>Reach {{formatNumber(layer.getPrestigeLimit(), 2, 0)}} <resource-name :layerid="layer.layer"></resource-name></span>
     </span>
 </button>
