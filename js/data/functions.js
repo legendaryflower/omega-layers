@@ -167,14 +167,14 @@ var functions = {
             localStorage.setItem("OmegaLayers_Settings", this.getSettingsSaveString());
             if(game.settings.notifications && game.settings.saveNotifications)
             {
-                functions.createNotification(new Notification(NOTIFICATION_STANDARD, "Game Saved!", "images/save.svg"));
+                functions.createNotification(new Notification(NOTIFICATION_STANDARD, "Data is saved", "images/save.svg"));
             }
         }
         catch(e)
         {
             if(game.settings.notifications && game.settings.saveNotifications)
             {
-                functions.createNotification(new Notification(NOTIFICATION_ERROR, "Error Saving Game", "images/save.svg"));
+                functions.createNotification(new Notification(NOTIFICATION_ERROR, "Fuck you", "images/save.svg"));
             }
         }
     },
