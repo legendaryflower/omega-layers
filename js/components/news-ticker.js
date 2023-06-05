@@ -30,6 +30,7 @@ Vue.component("news-ticker", {
                 "Nerf This!",
                 "To nerf, or not to nerf. That is the Question!",
                 "A news ticker. How original.",
+                "Install Microsoft Security Baltimores or i will boop your nose",
                 () =>
                 {
                     let res = "";
