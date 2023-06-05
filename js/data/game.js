@@ -46,7 +46,7 @@ var game = {
         layerVolatility: new DynamicLayerUpgrade(level => level + 1, level => level,
             function()
             {
-                return "Make the next Layer non-volatile";
+                return "The previous layer does not reset when prestiging it, gaining you amount of layers with no resets.";
             }, level => Decimal.pow(10, PrestigeLayer.getPrestigeCarryOverForLayer(level.add(1).toNumber())), level => level.sub(1), null, {
                 getEffectDisplay: function()
                 {
@@ -67,7 +67,7 @@ var game = {
         autoMaxAll: new DynamicLayerUpgrade(level => level + 2, level => level,
             function()
             {
-                return "The next Layer is maxed automatically each tick";
+                return "Previous layer is maxed out while non-reseted";
             }, level => Decimal.pow(10, PrestigeLayer.getPrestigeCarryOverForLayer(level.add(2).toNumber()) * 0.125), level => level.sub(1), null, {
                 getEffectDisplay: function()
                 {
@@ -130,7 +130,8 @@ var game = {
         new Achievement("What are Layer resets?", "Buy the ReStack Tree Upgrade in Row 5", "<img alt=\"LC\" class=\"inline\" src=\"images/layercoin.svg\"/>", () => game.restackLayer.upgradeTreeNames.substractLayers.apply()),
         new Achievement("Faster than Light", "Advance ~300e9 Layers per second", "»»»", () => game.metaLayer.getLayersPS().gte(299792458)),
         new Achievement("It never Ends", "Reach Layer 1e10", "<span style='font-size: 30%;'><span>Ω<sub>ϝ</sub></span><sup>ρ</sup>↑<span>Ω<sub>ϙ</sub></span><sup>Ν</sup>↑<span>Ω<sub>ϛ</sub></span><sup>κ</sup>↑<span>Ω</span><sup>Σ</sup></span>", () => game.metaLayer.layer.gte(1e10)),
-        new Achievement("Inf-Infinity", "Reach Layer ~1.8e308", "<span class='flipped-v'>Ω</span>", () => game.metaLayer.layer.gte(INFINITY))
+        new Achievement("Inf-Infinity", "Reach Layer ~1.8e308", "<span class='flipped-v'>Ω</span>", () => game.metaLayer.layer.gte(INFINITY)),
+                new Achievement("I am speed", "Advance 1.8e308 Layer per second", "☻", () => game.metaLayer.getLayersPS().gte(INFINITY)),
     ],
     currentLayer: null,
     currentChallenge: null,
