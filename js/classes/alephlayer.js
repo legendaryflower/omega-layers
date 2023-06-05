@@ -39,6 +39,11 @@ class AlephLayer
             prestigeRewards: new AlephUpgrade("Increase the Prestige Reward of all Layers",
                 level => Utils.createValueDilation(Decimal.pow(1e30, level).mul(1e100), 0.005, new Decimal("1e650")),
                 level => Decimal.pow(1.6, level)),
+             boostprestigeRewards: new AlephUpgrade("Boost all of your Prestige rewards",
+                level => Utils.createValueDilation(Decimal.pow(1e60, level).mul(1e200), 0.010, new Decimal("1e1250")),
+                level => Decimal.pow(1.8, level)), {
+                    maxLevel: 7,
+        }),
             layerExponentialBoost: new AlephUpgrade("Increase the exponential difference of boosts between layers, resulting in a large boost!",
                 level => level.lt(2) ? new Decimal([1e125, 1e210][level.toNumber()]) : Decimal.dInf,
                 level => [22, 25, 27][level.toNumber()], {
